@@ -1,11 +1,11 @@
 <?hh
 /**
- * Kamele Framework Hack v0.1
+ * Dromedarys Framework
  * 
  * @author      Rick Lubbers            <me@ricklubbers.nl>
  * @license     MIT licens			    see LICENSE.txt
  * 
- * 04 February 2014
+ * 06 May 2014
  */
 
 namespace Kamele {

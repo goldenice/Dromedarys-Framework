@@ -1,10 +1,10 @@
-Kamele-Framework
+Dromedarys Framework
 =============
 
-It's a PHP framework.
+It's a Hack framework, and it's utterly simple.
 It works.
-[It has documentation. Kind of.](http://goldenice.github.io/Kamele-Framework/ "Kamele Docs")
 
-[![Build Status](https://travis-ci.org/goldenice/Kamele-Framework.png?branch=master)](https://travis-ci.org/goldenice/Kamele-Framework)
+It hasn't got it's own documentation, but it is based on [Kamele Framework](https://github.com/goldenice/Kamele-Framework), so most of that is applicable to Dromedarys.
+[View Kamele Documentation](http://goldenice.github.io/Kamele-Framework/ "Kamele Docs")
 
-You can contact me at kamele@ricklubbers.nl or @srebbulkcir on twitter.
+You can contact me at dromedarys@ricklubbers.nl or @srebbulkcir on twitter.
