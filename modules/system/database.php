@@ -1,5 +1,5 @@
 <?hh
-namespace System;
+namespace Modules\System;
 use PDO;
 
 class Database extends Singleton {

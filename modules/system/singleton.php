@@ -1,5 +1,5 @@
 <?hh
-namespace System;
+namespace Modules\System;
 
 class Singleton {
     private static Array $instances = array();

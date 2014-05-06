@@ -1,11 +1,9 @@
 <?php
 namespace Modules\Main\Controllers;
 
-class Home extends \System\Basecontroller {
+class Home extends \Modules\System\Basecontroller {
     function index($arg = null) {
-        echo 'It werks'."\n";
-        return;
-        $layout = new \System\Layout('modules/main/views/home');
+        $layout = new \Modules\System\Layout('modules/main/views/home');
 
         $test = $this->loader['\Modules\Main\Models\Example'];
         $content = $test->exampleMethod();

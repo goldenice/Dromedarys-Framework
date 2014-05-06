@@ -1,5 +1,5 @@
 <?hh
-namespace System;
+namespace Modules\System;
 
 final class Loader extends Singleton implements \ArrayAccess {
     private Array $saved = array();
@@ -19,7 +19,7 @@ final class Loader extends Singleton implements \ArrayAccess {
     final function offsetGet(mixed $name): ?mixed {
         if (!isset($this->saved[$name])) {
             if (class_exists($name)) {
-                if (is_subclass_of($name, '\System\Singleton')) {
+                if (is_subclass_of($name, '\Modules\System\Singleton')) {
                     $this->saved[$name] = $name::getInstance();
                 }
                 else {

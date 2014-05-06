@@ -1,7 +1,7 @@
 <?hh
-namespace System;
+namespace Modules\System;
 
-class Events extends \System\Singleton {
+class Events extends Singleton {
     private Array $listeners;
     static public Array $priorities = array('LOWEST'=>10, 'LOW'=>25, 'NORMAL'=>50, 'HIGH'=>75, 'HIGHEST'=>90, 'MONITOR'=>100);        // The numbers are defined as a form of percentages
     

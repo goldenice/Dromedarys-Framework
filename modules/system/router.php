@@ -6,11 +6,11 @@
  * 
  */
 
-namespace System;
+namespace Modules\System;
 
 final class Router {
     private string $mode;      // CLI or browser
-    private Events $events;    // The \System\Events object
+    private Events $events;
     
     function __construct() {
         // Check for the correct execution mode
@@ -22,7 +22,7 @@ final class Router {
         }
 
         // Load events object
-        $this->events = \System\Events::getInstance();
+        $this->events = Events::getInstance();
         
         // Fire up the actual routing
         // If called with CLI, use argument 1 for routing, or else

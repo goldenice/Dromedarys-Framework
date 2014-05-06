@@ -1,9 +1,9 @@
 <?hh
-namespace System;
+namespace Modules\System;
 
-class Exceptions extends \System\Singleton {
+class Exceptions extends Singleton {
     static function handleException(Array $e): void {
-        $event = \System\Events::getInstance();
+        $event = Events::getInstance();
         $event->fireEvent('exception_caught', $e);
         if (!empty($e)) {
             echo "\n<br />".'Exception: '.$e->getMessage();

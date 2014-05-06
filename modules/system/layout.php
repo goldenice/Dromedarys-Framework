@@ -1,5 +1,5 @@
 <?hh
-namespace System;
+namespace Modules\System;
 
 class Layout {
     private string $view;
