@@ -1,9 +1,9 @@
-<?php
+<?hh
 namespace System;
 
 final class Core {
-    private $events;
-    private $router;
+    private Events $events;
+    private Router $router;
     
     function __construct() {
         // Make sure we don't get headers erroring all over the place

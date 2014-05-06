@@ -1,15 +1,16 @@
-<?php
+<?hh
 /**
- * Kamele Framework v1.0
+ * Kamele Framework Hack v0.1
  * 
  * @author      Rick Lubbers            <me@ricklubbers.nl>
- * @license     Kamele License v1.0     see LICENSE.txt
+ * @license     MIT licens			    see LICENSE.txt
  * 
  * 04 February 2014
  */
 
 // Define the run mode.
-define('MODE', 'development');
+define('MODE', 			'development');
+define('ENVIRONMENT', 	'HHVM');
 
 if (defined('MODE')) {
 	switch (MODE) {

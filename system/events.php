@@ -1,9 +1,9 @@
-<?php
+<?hh
 namespace System;
 
 class Events extends \System\Singleton {
-    private $listeners;
-    static public $priorities = array('LOWEST'=>10, 'LOW'=>25, 'NORMAL'=>50, 'HIGH'=>75, 'HIGHEST'=>90, 'MONITOR'=>100);        // The numbers are defined as a form of percentages
+    private Array $listeners;
+    static public Array $priorities = array('LOWEST'=>10, 'LOW'=>25, 'NORMAL'=>50, 'HIGH'=>75, 'HIGHEST'=>90, 'MONITOR'=>100);        // The numbers are defined as a form of percentages
     
     function __construct() {
         parent::__construct();
@@ -11,7 +11,7 @@ class Events extends \System\Singleton {
         $this->loadModuleListeners();
     }
     
-    private function loadModuleListeners() {
+    private function loadModuleListeners(): void {
         // Define dir- and filenames
         $moduledir = 'modules';
         $listenerfile = 'listeners.json';
@@ -46,7 +46,7 @@ class Events extends \System\Singleton {
         }
     }
     
-    function fireEvent($name, &$data = null) {
+    function fireEvent(string $name, mixed &$data = null): mixed {
         if (!empty($this->listeners[$name])) {
             foreach ($this->listeners[$name] as $k=>$v) {
                 if ($data !== null) {
@@ -60,11 +60,11 @@ class Events extends \System\Singleton {
         return $data;
     }
     
-    function prioStringToInt($priority) {
+    function prioStringToInt(string $priority): int {
         return self::$priorities[strtoupper($priority)];
     }
     
-    function addListener($event, $function, $priority = 'NORMAL') {
+    function addListener(string $event, Array $function, string $priority = 'NORMAL'): bool {
         $priority = $this->prioStringToInt($priority);
         
         // Make sure the event does not exist in the array of listeners
@@ -95,7 +95,7 @@ class Events extends \System\Singleton {
     }
     
     // This deletes all listeners with given function, no matter what priority!
-    function deleteListener($event, $function) {
+    function deleteListener(string $event, Array $function) {
         if (!empty($this->listeners[$event])) {
             foreach ($this->listeners[$event] as $k=>$v) {
                 if ($v->func == $function) {

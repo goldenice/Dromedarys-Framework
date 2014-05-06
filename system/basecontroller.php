@@ -2,8 +2,8 @@
 namespace System;
 
 abstract class Basecontroller {
-	protected $loader;
-    protected $events;
+	protected Loader $loader;
+    protected Events $events;
 	
 	function __construct() {
 		$this->loader = \System\Loader::getInstance();

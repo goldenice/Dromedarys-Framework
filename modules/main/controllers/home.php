@@ -2,7 +2,9 @@
 namespace Modules\Main\Controllers;
 
 class Home extends \System\Basecontroller {
-    function index($arg = null) {		
+    function index($arg = null) {
+        echo 'It werks'."\n";
+        return;
         $layout = new \System\Layout('modules/main/views/home');
 
         $test = $this->loader['\Modules\Main\Models\Example'];

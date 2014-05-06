@@ -1,4 +1,4 @@
-<?php
+<?hh
 /**
  * 
  * System router
@@ -9,8 +9,8 @@
 namespace System;
 
 final class Router {
-    private $mode;      // CLI or browser
-    private $events;    // The \System\Events object
+    private string $mode;      // CLI or browser
+    private Events $events;    // The \System\Events object
     
     function __construct() {
         // Check for the correct execution mode
@@ -40,7 +40,7 @@ final class Router {
         }
     }
     
-    function route($uri) {
+    function route(string $uri): void {
 		$arguments = explode('index.php', $uri);
 		if (isset($arguments[1])) {
 			$uri = ltrim($arguments[1], '?');
@@ -125,7 +125,7 @@ final class Router {
         }
     }
     
-    static function redirect($uri, $statuscode = 307) {
+    static function redirect(string $uri, int $statuscode = 307): void {
         $statusstr = array(301 => 'Moved Permanently', 302 => 'Found', 307 => 'Temporary Redirect');
         $this->events->fireEvent('router_redirect', $uri);
         if (isset($statusstr[$statuscode])) {
@@ -135,7 +135,7 @@ final class Router {
         exit(0);
     }
     
-    static function autoloader($classname) {
+    static function autoloader(string $classname): bool {
         // Separate the parts of the whole namespace
         $parts = explode('\\', $classname);
         $name = end($parts);                                            // Get classname
@@ -150,7 +150,7 @@ final class Router {
             $dir .= '/';
         }
         
-        require strtolower($dir).strtolower($name).'.php';
+        require ltrim(strtolower($dir), '/').strtolower($name).'.php';
 
         return true;
     }

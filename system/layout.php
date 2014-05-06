@@ -1,11 +1,11 @@
-<?php
+<?hh
 namespace System;
 
 class Layout {
-    private $view;
-    private $viewpath;
+    private string $view;
+    private string $viewpath;
     
-    function __construct($view) {
+    function __construct(string $view) {
         if (file_exists($view.'.html')) {
             $this->view = $view;
             $this->viewpath = $view.'.html';
@@ -16,7 +16,7 @@ class Layout {
         }
     }
     
-    function render($data, $output = true) {
+    function render(Array $data, $output = true): ?string {
         $data['baseurl'] = BASEURL;
         $html = file_get_contents($this->viewpath);
         foreach($data as $k=>$v) {
@@ -24,13 +24,14 @@ class Layout {
         }
         if ($output == true) {
             echo $html;
+            return null;
         }
         else {
             return $html;
         }
     }
     
-    function renderPart($view, $data) {
+    function renderPart(string $view, Array $data): ?string {
         if (file_exists($view.'.html')) {
             $data['baseurl'] = BASEURL;
             $html = file_get_contents($view.'.html');
@@ -40,7 +41,7 @@ class Layout {
             return $html;
         }
         else {
-            return false;
+            return null;
         }
     }
 }
